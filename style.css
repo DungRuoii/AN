@@ -1,0 +1,945 @@
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Segoe UI', sans-serif; */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:wheat;
+    padding-top: 60px;
+  }
+
+  /* An coffee style */
+  .slideshow-bg,
+  .slideshow-bg-next {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 2s ease-in-out;
+    z-index: -1;
+  }
+
+.slideshow-bg {
+  opacity: 1;
+}
+
+.slideshow-bg-next {
+  opacity: 0;
+}
+
+/* AN Garden slideshow */
+.slideshow-angarden {
+  background-color: transparent;
+}
+
+.slideshow-angarden .slideshow-bg,
+.slideshow-angarden .slideshow-bg-next {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.fullscreen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Màu nền mờ */
+    z-index: 2; /* dưới welcome-banner (z-index: 3), trên background (z-index: 1) */
+  }
+
+  .welcome-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeInWelcome 2s ease-out;
+  }
+  
+  .welcome-banner {
+    font-family: 'Pacifico', cursive;
+    font-size: 5.5rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  @keyframes fadeInWelcome {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  
+  .nav-button {
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #3e2c27;
+  }  
+         
+  /* Menu */
+  .aboutus-layout {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  
+  /* Sidebar */
+  .category-sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .category-sidebar h2 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+  }
+  
+  .category-sidebar ul {
+    font-family: 'Segoe UI', sans-serif;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-sidebar li {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+  
+  .category-sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .category-sidebar a:hover {
+    color: #aa5c3c;
+  }
+  
+  /* Grid sản phẩm */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    flex: 1;
+    align-items: start;
+  }
+  
+  .product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    height: auto;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  
+  .product-card h3 {
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    color: #3e2c27;
+  }
+  
+  .product-card p {
+    color: #aa5c3c;
+    font-weight: bold;
+    margin-top: 0.3rem;
+  }
+
+  /* About us an coffee */
+  .aboutus-ancf {
+    background-image: url('images/about_ancoffee.jpg'); /* Đổi tên ảnh nếu khác */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: transparent; /* Gỡ màu nền mặc định */
+  }
+
+  .aboutus-ancf::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* hoặc rgba(0, 0, 0, 0.3) cho overlay tối */
+    z-index: -1;
+  }
+
+  /* About us an garden */
+  .aboutus-angd {
+    background-image: url('images/about_angarden.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: transparent;
+  }
+
+  .aboutus-angd::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  .aboutus-heading {
+    text-align: center;
+    padding: 4rem 2rem 0rem;
+    margin-top: 0;
+  }
+  
+  .aboutus-heading h1 {
+    font-family: 'Script', cursive;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeInTitle 1.2s ease-out forwards;
+    opacity: 0;
+  }
+
+  .aboutus-content {
+    max-width: 100%;
+    margin-top: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: whitesmoke;
+    padding: 0 20px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  .animated-text {
+    font-family: 'Segoe UI', sans-serif;
+    text-align: justify;
+    opacity: 0;
+    animation: floatIn 1.5s ease-out forwards;
+  }
+  
+  @keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInTitle {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Contact */
+  /* Thiết kế chung cho section liên hệ */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.contact-section h1{
+    text-align: center;
+    font-size: 3rem;
+    text-wrap:pretty;
+}
+
+/* Bên trái chứa các cách thức liên lạc */
+.contact-info {
+    flex: 1;
+    max-width: 50%; /* Hạn chế chiều rộng của phần liên lạc */
+    text-align: left;
+}
+
+.contact-details {
+    margin-top: 5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    font-size: 4.5rem;
+}
+
+.contact-item i {
+    margin-right: 10px;
+}
+
+.contact-item a {
+    color: #d1a564;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Bên phải chứa bản đồ Google Map */
+.map-container {
+    flex: 1;
+    max-width: 50%; /* Hạn chế chiều rộng của phần bản đồ */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 830px;
+    border: 0;
+}
+
+.map-container h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+  /* Navbar */
+.navbar {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5dc;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    background: none;
+    border: none;
+}
+
+.menu-toggle i {
+    font-size: 1.5rem;
+    color: #3e2c27;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.active i {
+    transform: rotate(90deg);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #3e2c27;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d1a564;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #f5f5dc;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 4rem;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+    padding-top: 60px;
+}
+
+  /* Hero section */
+  .hero {
+    position: relative;
+    height: 94.5vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 5rem;
+    z-index: 2;
+  }
+
+  .hero-link {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 4rem;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    text-shadow: 0 0 8px rgba(0,0,0,0.6);
+    font-weight: bold;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    transition: transform 0.3s ease;
+    z-index: 5;
+  }
+
+  .hero-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  /* trái từ giữa trôi ra 20% bên trái */
+  .hero-link.left {
+    font-family: 'Script', cursive;
+    left: 50%;
+    animation: slideLeft 1.2s ease-out 0.1s forwards;
+  }
+  
+  /* phải từ giữa trôi ra 20% bên phải */
+  .hero-link.right {
+    font-family: 'Script', cursive;
+    left: 50%;
+    animation: slideRight 1.2s ease-out 0.1s forwards;
+  }
+  
+  /* hover scale */
+  .hero-link:hover span {
+  transform: scale(1.5);
+}
+  
+  /* keyframes */
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      /* bắt đầu ở chính giữa */
+      transform: translateX(-50%) translateY(-50%);
+    }
+    to {
+      opacity: 1;
+      /* kết thúc lệch 20% so với tâm về bên trái */
+      transform: translateX(-200%) translateY(-50%);
+    }
+  }
+  
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    to {
+      opacity: 1;
+      /* kết thúc lệch 20% so với tâm về bên phải */
+      transform: translateX(100%) translateY(-50%);
+    }
+  }
+   
+  /* Background trang chính */
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  
+  .bg1 {
+    background-image: url('images/Ancoffee.jpg');
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    animation: fadeInLeft 1.5s ease-out forwards;
+  }
+  
+  .bg2 {
+    background-image: url('images/Angarden.jpg');
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    animation: fadeInRight 1.5s ease-out forwards;
+  }
+   
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: scale(1.1) translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: scale(1.1) translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+  }
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .aboutus-content {
+    font-size: 1.8rem;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .welcome-banner {
+    font-size: 4.5rem;
+  }
+
+  .hero-link {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .aboutus-content {
+    font-size: 1.6rem;
+  }
+
+  .welcome-banner {
+    font-size: 4rem;
+  }
+
+  .hero-link {
+    font-size: 3rem;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info, .map-container {
+    max-width: 100%;
+  }
+
+  .contact-item {
+    font-size: 3.5rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    position: relative;
+    right: 0;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(245, 245, 220, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 2rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 1.5rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    color: #3e2c27;
+  }
+
+  .menu-toggle i {
+    font-size: 1.8rem;
+    color: #3e2c27;
+  }
+
+  .aboutus-content {
+    font-size: 1.4rem;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .welcome-banner {
+    font-size: 3.5rem;
+  }
+
+  .hero-link {
+    font-size: 2.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    font-size: 2.8rem;
+  }
+
+  .map-container iframe {
+    height: 400px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-link.left {
+    animation: slideDown 1.2s ease-out 0.1s forwards;
+  }
+
+  .hero-link.right {
+    animation: slideUp 1.2s ease-out 0.1s forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .bg1 {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  }
+
+  .bg2 {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  }
+
+  .hero-link {
+    position: relative;
+    transform: none;
+    left: auto;
+    top: auto;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .hero-link span {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    margin-top: 0;
+  }
+
+  .aboutus-content {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .welcome-banner {
+    font-size: 2.8rem;
+  }
+
+  .hero-link {
+    font-size: 2rem;
+  }
+
+  .aboutus-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-item {
+    font-size: 2.2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  .category-sidebar {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .aboutus-layout {
+    flex-direction: column;
+  }
+
+  .hero-link span {
+    font-size: 2rem;
+  }
+
+  .bg1, .bg2 {
+    opacity: 0.8;
+  }
+}
+
+/* Mobile Navigation */
+@media screen and (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .nav-links {
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .aboutus-content {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .welcome-banner {
+    font-size: 2.8rem;
+  }
+
+  .hero-link {
+    font-size: 2rem;
+  }
+
+  .aboutus-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-item {
+    font-size: 2.2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  .category-sidebar {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .aboutus-layout {
+    flex-direction: column;
+  }
+}
+
+/* Add this to your existing CSS */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1000;
+  background: none;
+  border: none;
+}
+
+.menu-toggle i {
+  font-size: 1.8rem;
+  color: #3e2c27;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make sure buttons are touch-friendly on mobile */
+.nav-button {
+  padding: 1rem 2rem;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Improve text readability on small screens */
+@media screen and (max-width: 576px) {
+  body {
+    font-size: 16px;
+  }
+
+  .aboutus-content {
+    line-height: 1.6;
+  }
+}

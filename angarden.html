@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>AN Garden</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="slideshow-angarden">
+    <div class="slideshow-bg"></div>
+    <div class="slideshow-bg-next"></div>
+
+    <header>
+        <nav class="navbar">
+          <a class="logo" href="index.html"><img src="images/logo.png" alt="Logo AN Cafe"></a>
+          <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="angarden.html">AN Garden</a></li>
+            <li><a href="aboutus_angarden.html">Giới thiệu</a></li>
+            <li><a href="contact_angarden.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <div class="fullscreen-overlay"></div>
+    <div class="welcome-container">
+        <div class="welcome-banner">Chào mừng bạn đến với AN Garden</div>
+        <div class="button-group">
+            <a href="aboutus_angarden.html" class="nav-button">Giới thiệu</a>
+            <a href="contact_angarden.html" class="nav-button">Liên hệ</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    const images = Array.from({ length: 10 }, (_, i) => `images/angarden/${i + 1}.jpg`);
+    let currentIndex = 0;
+    let isEven = true;
+  
+    const bg1 = document.querySelector('.slideshow-bg');
+    const bg2 = document.querySelector('.slideshow-bg-next');
+  
+    function preloadImage(src) {
+      const img = new Image();
+      img.src = src;
+    }
+  
+    function updateBackground() {
+      const nextIndex = (currentIndex + 1) % images.length;
+      const currentImage = images[currentIndex];
+      const nextImage = images[nextIndex];
+  
+      preloadImage(nextImage);
+  
+      if (isEven) {
+        bg1.style.backgroundImage = `url('${currentImage}')`;
+        bg2.style.backgroundImage = `url('${nextImage}')`;
+        bg2.style.opacity = '1';
+        bg1.style.opacity = '0';
+      } else {
+        bg2.style.backgroundImage = `url('${currentImage}')`;
+        bg1.style.backgroundImage = `url('${nextImage}')`;
+        bg1.style.opacity = '1';
+        bg2.style.opacity = '0';
+      }
+  
+      isEven = !isEven;
+      currentIndex = nextIndex;
+    }
+  
+    // Preload all images
+    images.forEach(preloadImage);
+  
+    // Set initial background
+    bg1.style.backgroundImage = `url('${images[0]}')`;
+    bg2.style.backgroundImage = `url('${images[1]}')`;
+  
+    // Start slideshow
+    setInterval(updateBackground, 5000);
+</script>
+</html>
